@@ -11,11 +11,12 @@ const Signup = () => {
                 
                 <label>Name : </label>
                 <input type="text" className="border rounded px-3 py-2 ml-2"/>
-                
-                
                 <label>Username : </label>
                 <input type="text" className="border rounded px-3 py-2 ml-2"/>
-                
+                <label>email: </label>
+                <input type="email" className="border rounded px-3 py-2 ml-2"/>
+                <label> phoneNumber: </label>
+                <input type="text" className="border rounded px-3 py-2 ml-2"/>
                 <label>Password : </label>
                 <input type="password" className="border rounded px-3 py-2 ml-2"/>
                 
