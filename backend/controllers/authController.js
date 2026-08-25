@@ -34,4 +34,13 @@ const register = async (req, res) => {
     }
 }
 
-export {register}
+const login = async (req, res) => {
+    try{
+        const response = await axios.post("http://localhost:3000/api/auth/login")
+    }catch(error){
+        console.error("error in controller", error)
+        return res.status(500).json.json({success: false, message: "server error"})
+    }
+}
+
+export {register, login}
