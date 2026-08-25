@@ -2,13 +2,15 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Dashboard from './pages/Dashboard'
-import Signup from './components/Signup'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
 
 const App = () => {
   return (
     <>
     <Routes>
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/login" element={<Login/>} />
 
       <Route element={<Layout/>}>
         <Route path="/" element={<Dashboard/>} />
