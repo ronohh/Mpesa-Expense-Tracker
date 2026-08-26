@@ -1,5 +1,6 @@
 import userModel from "../models/User.js";
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 
 const register = async (req, res) => {
     try {
@@ -15,7 +16,7 @@ const register = async (req, res) => {
 
         const existingEmail = await userModel.findOne({ email });
         if (existingEmail) {
-            return res.status(400).json({ succcess: false, message: "Email already exists"})
+            return res.status(400).json({ success: false, message: "Email already exists"})
         }
 
         const hashedPassword = await bcrypt.hash(password, 10)
@@ -36,10 +37,24 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try{
-        const response = await axios.post("http://localhost:3000/api/auth/login")
+        const {username, password} = req.body;
+
+        const user = await userModel.findOne({ username });
+        if (!user) {
+            return res.status(404).json({message: "user not found"})
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch) {
+            return res.status(401).json({ message: "invalid credetials"})
+        }
+
+        const token = jwt.sign({ id:user._id }, process.env.JWT_SECRET, {expiresIn: '2d'});
+        return res.status(200).json({success:true, message: "login successful",token})
+
     }catch(error){
         console.error("error in controller", error)
-        return res.status(500).json.json({success: false, message: "server error"})
+        return res.status(500).json({success: false, message: "server error"})
     }
 }
 

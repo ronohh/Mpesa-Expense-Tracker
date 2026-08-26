@@ -2,7 +2,7 @@ import React from 'react'
 
 const Layout = () => {
     return (
-        <div>Hello </div>
+        <div>im layout.jsx </div>
     )
 }
 
