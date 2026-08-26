@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 const Signup = () => {
     const [formData, setformData] = useState({
@@ -10,6 +11,7 @@ const Signup = () => {
         phoneNumber: "",
         password: ""
     });
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +26,7 @@ const Signup = () => {
                     phoneNumber: "",
                     password: ""
                 })
+                navigate('/dashboard')
             }else {
                 console.log("error registering")
             }
