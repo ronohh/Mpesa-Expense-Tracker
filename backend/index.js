@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
-import "dotenv/config"
+import dotenv from "dotenv";
 import connectDB from "./config/db_connection.js";
 import authRoutes from "./routes/authRoutes.js"
+
+dotenv.config();
 
 const app = express();
 // Middleware
