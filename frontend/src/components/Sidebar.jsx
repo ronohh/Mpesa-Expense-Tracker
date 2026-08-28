@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {FaHome} from 'react-icons/fa';
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
 
@@ -8,7 +9,9 @@ const Sidebar = () => {
         { name: "Dashboard", path: "/dashboard", icon: <FaHome /> }
     ]
 
-    const [menuLinks, setMenuLinks] = useState();
+    const {user} = useAuth();
+    
+    const [menuLinks, setMenuLinks] = useState([]);
     useEffect(() => {
         if(user) {
             setMenuLinks(menuItems)

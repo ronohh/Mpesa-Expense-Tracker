@@ -1,13 +1,17 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import Layout from "../components/Layout";
 
 const Dashboard = () => {
     return ( 
-        <div>
-            <div className="flex">
-                <Sidebar/>
+        <Layout>
+            <div>
+                <div className="flex">
+                    <Sidebar/>
+                </div>
             </div>
-        </div>
+        </Layout>
+        
     )
 }
 

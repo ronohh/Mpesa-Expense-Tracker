@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Sidebar from './Sidebar';
+import Navbar from './Navbar';
 
 const Layout = () => {
     return (
-        <div>i'm layout.jsx </div>
+        <div >
+            <div className="flex-1 flex flex-col">
+                <Navbar />
+            </div>
+            <div className="flex min-h-screen bg-gray-100">
+                <Sidebar/>
+            </div>
+        </div>
     )
 }
 

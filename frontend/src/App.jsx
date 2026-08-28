@@ -4,13 +4,11 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Navbar from './components/Navbar';
 
 const App = () => {
   return (
     <>
 
-    <Navbar/>
 
     <Routes>
       <Route path="/signup" element={<Signup/>} />
