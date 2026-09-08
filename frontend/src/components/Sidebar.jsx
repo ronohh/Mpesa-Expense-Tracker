@@ -6,7 +6,8 @@ import { useAuth } from "../context/AuthContext";
 const Sidebar = () => {
 
     const menuItems = [
-        { name: "Dashboard", path: "/dashboard", icon: <FaHome /> }
+        { name: "Dashboard", path: "/dashboard", icon: <FaHome /> },
+        { name: "Categories", path: "/categories", icon: <FaHome/>}
     ]
 
     const {user} = useAuth();
