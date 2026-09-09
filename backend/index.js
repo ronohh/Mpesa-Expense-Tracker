@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db_connection.js";
 import authRoutes from "./routes/authRoutes.js"
+import categoryRoutes from "./routes/categoryRoutes.js";
 
 dotenv.config();
 
@@ -13,12 +14,12 @@ app.use(express.json());
 
 //Routes
 app.get("/", (req, res) => {
-    res.json({
-        success: true,
-        message: "Backend is running"
-    });
+    res.json({success: true, message: "Backend is running"});
 });
 app.use('/api/auth', authRoutes)
+app.use("/api/categories", categoryRoutes);
+
+
 //DB
 connectDB();
 
