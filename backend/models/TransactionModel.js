@@ -6,7 +6,7 @@ const transactionSchema = new mongoose.Schema({
     category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true},
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
     date: { type: Date, required: true }
-}, {timestamp: true});
+}, {timestamps: true});
 
 const Transaction = mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
 
