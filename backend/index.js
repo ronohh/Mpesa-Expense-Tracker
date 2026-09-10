@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db_connection.js";
 import authRoutes from "./routes/authRoutes.js"
 import categoryRoutes from "./routes/categoryRoutes.js";
+import transactionRoutes from "./routes/transactionRoutes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 app.use('/api/auth', authRoutes)
 app.use("/api/categories", categoryRoutes);
+app.use("/api/transactions", transactionRoutes);
 
 
 //DB
