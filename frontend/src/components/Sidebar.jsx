@@ -7,7 +7,8 @@ const Sidebar = () => {
 
     const menuItems = [
         { name: "Dashboard", path: "/dashboard", icon: <FaHome /> },
-        { name: "Categories", path: "/categories", icon: <FaHome/>}
+        { name: "Categories", path: "/categories", icon: <FaHome/>},
+        { name: "Transactions", path: "/transactions", icon: <FaHome/>}
     ]
 
     const {user} = useAuth();

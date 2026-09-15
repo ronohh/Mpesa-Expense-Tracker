@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Categories from './pages/Categories';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Transactions from "./pages/Transactions";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <Route element={<Layout/>}>
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/categories" element={<Categories/>} />
+        <Route path="/transactions" element={<Transactions/>} />
       </Route>
 
     </Routes>
@@ -25,4 +27,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App 
