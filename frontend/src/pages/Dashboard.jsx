@@ -1,16 +1,13 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
-import Layout from "../components/Layout";
 
 const Dashboard = () => {
     return ( 
-        <Layout>
-            <div>
-                <div className="flex">
-                    <Sidebar/>
-                </div>
-            </div>
-        </Layout>
+        
+        <div>
+            <h1 className="text-2xl font-bold">Dashboard</h1>
+
+            <p className="text-gray-500">Welcome to your expense Tracker</p>
+        </div>
         
     )
 }

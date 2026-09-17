@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import axios from "axios";
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
@@ -8,6 +9,8 @@ const Categories = () => {
         type: "expense",
         icon: ""
     });
+
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
