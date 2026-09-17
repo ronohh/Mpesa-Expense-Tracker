@@ -1,11 +1,39 @@
-import React from "react";
+import { React, useState } from "react";
 
 const Categories = () => {
+    const [categories, setCategories] = useState([]);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        type: "expense",
+        icon: ""
+    });
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post("http://localhost:3000/api/categories", formData,
+                { headers: {
+                    Authorization: `Bearer ${localStorage.getItem("pos-token")}`
+                }}
+            );
+            if (response.data.success){
+                setFormData({
+                    name: "",
+                    type: "expense",
+                    icon: ""
+                });
+            }
+        }catch (error) {
+            console.error(" error creating category: ", error)
+        }
+    }
     return (
         <div className="ml-12 p-6">
             <h1>Categories</h1>
 
-            <form className="bg-white shadow rounded-lg p-6 mb-6">
+            <form  onSubmit={handleSubmit} className="bg-white shadow rounded-lg p-6 mb-6">
                 <h2 className="bg-green-500 text-black font-bold p-2">Add Category</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
