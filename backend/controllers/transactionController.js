@@ -1,5 +1,5 @@
-import Transaction from "../models/TransactionModel";
-import category from "../models/CategoriesModel";
+import Transaction from "../models/TransactionModel.js";
+import category from "../models/CategoriesModel.js";
 
 const AddTransaction = async (req, res) => {
     try{

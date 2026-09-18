@@ -1,4 +1,4 @@
-import Category from "../models/Category.js";
+import Category from "../models/CategoriesModel.js";
 
 const addCategory = async (req,res) => {
     try {
@@ -23,12 +23,12 @@ const addCategory = async (req,res) => {
 
 const getCategories = async (req,res) => {
     try{
-        const categories = await Category.find();
-        return res.status(200).json({succes: false, categories});
+        const categories = await Category.find({user: req.user._id});
+        return res.status(200).json({success: true, categories});
     }catch(error){
         console.error('Error fetching categories:', error);
         return res.status(500).json({ success: false, message: 'server error'})
     }
 }
 
-export { addCategory };
+export { addCategory, getCategories };
