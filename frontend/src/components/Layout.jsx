@@ -10,13 +10,13 @@ const Layout = () => {
 
                 <Sidebar/>
             
-            <div className="md:ml-64">
-                <Navbar />
+                <div className="md:ml-64">
+                    <Navbar />
 
-                <main className=" p-6">
-                    <Outlet />
-                </main>
-            </div>
+                    <main className=" p-6">
+                        <Outlet />
+                    </main>
+                </div>
             </div>
         </div>
     )

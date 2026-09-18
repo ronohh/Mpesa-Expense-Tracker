@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import axios from "axios";
 
 const Categories = () => {
@@ -10,7 +10,21 @@ const Categories = () => {
         icon: ""
     });
 
-    
+const fetchCategories = async () => {
+    try{
+        const response = await axios.get("http://localhost:3000/api/categories",{
+            headers: { Authorization: `Bearer ${localStorage.getItem("pos-token")}`}
+        });
+        if (response.data.success) {
+            setCategories(response.data.Categories);
+        }
+    }catch(error) {
+            console.error( "Error fetching categories", error)
+        }
+        useEffect(() => {
+            fetchCategories();
+        })
+}
 
     const handleSubmit = async (e) => {
         e.preventDefault();
