@@ -23,7 +23,7 @@ const fetchCategories = async () => {
         }
         useEffect(() => {
             fetchCategories();
-        })
+        },[])
 }
 
 const handleChange = (e) => {
@@ -74,14 +74,38 @@ const handleChange = (e) => {
             </form>
 
             <div className="bg-white shadow rounded-lg p-6">
-                <div>
-                    <h2>My Categories</h2>
+                <div className="p-4 border-b">
+                    <h2 className="text-lg font-semibold">My Categories</h2>
                 </div>
-                {categories.length === 0 ? (
+                {/* {categories.length === 0 ? (
                     <p>No categories found.</p>
-                ):(
-                    <div></div>
-                )}
+                ):( */}
+                    <div>
+                        <table className="w-full">
+                            <thead className="bg-gray-100">
+                                <tr>
+                                    <th className="text-left p-4">Name</th>
+                                    <th className="text-left p-4">Type</th>
+                                    <th className="text-left p-4">Icon</th>
+                                    <th className="text-left p-4">Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {categories.map((category) => (
+                                    <tr key={category._id}>
+                                        <td>{category.name}</td>
+                                        <td>{category.type}</td>
+                                        <td>{category.icon}</td>
+                                        <td className="p-4 text-right">
+                                            <button className="text-red-600 hover:text-red-800">Delete</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                {/* )} */}
             </div>
         </div>
     );
