@@ -72,6 +72,17 @@ const handleChange = (e) => {
                     <button type="submit" className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover-green-700">Add Category</button>
                 </div>
             </form>
+
+            <div className="bg-white shadow rounded-lg p-6">
+                <div>
+                    <h2>My Categories</h2>
+                </div>
+                {categories.length === 0 ? (
+                    <p>No categories found.</p>
+                ):(
+                    <div></div>
+                )}
+            </div>
         </div>
     );
 }
