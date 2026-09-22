@@ -12,7 +12,7 @@ const Categories = () => {
 
 const fetchCategories = async () => {
     try{
-        const response = await axios.get("http://localhost:3000/api/categories",{
+        const response = await axios.get("http://localhost:3000/api/categories/",{
             headers: { Authorization: `Bearer ${localStorage.getItem("pos-token")}`}
         });
         if (response.data.success) {
@@ -38,7 +38,7 @@ const handleChange = (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3000/api/categories", formData,
+            const response = await axios.post("http://localhost:3000/api/categories/", formData,
                 { headers: {
                     Authorization: `Bearer ${localStorage.getItem("pos-token")}`
                 }}
@@ -52,6 +52,26 @@ const handleChange = (e) => {
             }
         }catch (error) {
             console.error(" error creating category: ", error)
+        }
+    }
+
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this category?")
+
+        if(!confirmDelete) return;
+
+        try {
+            const response = await axios.delete(`http://localhost:3000/api/categories/${id}`,
+                {
+                    headers: { Authorization: `Bearer ${localStorage.getItem("pos-token")}` }
+                }
+            );
+
+            if (response.data.success) {
+                fetchCategories();
+            }
+        } catch (error) {
+            console.error("Error deleting category:", error.response?.data || error.message);
         }
     }
     return (
@@ -98,7 +118,9 @@ const handleChange = (e) => {
                                         <td>{category.type}</td>
                                         <td>{category.icon}</td>
                                         <td className="p-4 text-right">
-                                            <button className="text-red-600 hover:text-red-800">Delete</button>
+                                            <button className="text-red-600 hover:text-red-800" onClick={() => handleDelete(category._id)}>
+                                                Delete
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}

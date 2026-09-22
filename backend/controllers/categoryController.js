@@ -17,13 +17,13 @@ const addCategory = async (req,res) => {
          res.status(201).json({ message: "Category added successfully", category });
 
     } catch (error) {
-        res.status(500).json({ success: false, message: "Internal server error" });
+        res.status(500).json({ success: false, message: "Internal server error", error });
     }
 };
 
 const getCategories = async (req,res) => {
     try{
-        const categories = await Category.find({user: req.user._id});
+        const categories = await Category.find();
         return res.status(200).json({success: true, categories});
     }catch(error){
         console.error('Error fetching categories:', error);
