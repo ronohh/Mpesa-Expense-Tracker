@@ -30,4 +30,14 @@ const AddTransaction = async (req, res) => {
     }
 }
 
-export { AddTransaction };
+const getTransactions = async (req, res) => {
+    try {
+        const transactions = await Transaction.find({user: req.user._id}).populate("category", "name type icon").sort({ date: -1 });
+        return res.status(200).json({ success: true, transactions });
+    } catch (error) {
+        console.error("Error fetching transactions:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
+    }
+}
+
+export { AddTransaction, getTransactions };
