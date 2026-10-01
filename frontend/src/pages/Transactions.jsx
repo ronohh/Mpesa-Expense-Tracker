@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 const Transactions = () => {
+    const [transactions, setTransactions] = useState([]);
     const [categories, setCategories] = useState([]);
 
     const getHeaders = () => {
@@ -10,6 +11,7 @@ const Transactions = () => {
             Authorization: `Bearer ${localStorage.getItem("pos-token")}`
         };
     };
+    
     const fetchCategories = async () => {
         try {
             const response = await axios.get("http://localhost:3000/api/categories", {
@@ -26,6 +28,21 @@ const Transactions = () => {
     useEffect(() => {
         fetchCategories();
     }, []);
+
+    const fetchTransactions = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/api/transactions",
+                {
+                    headers: getHeaders()
+                }
+            );
+            if (response.data.success) {
+                setTransactions(response.data.transactions);
+            }
+        }catch (error) {
+            console.error("Error fetching transactions:", error);
+        }
+    }
 
     return (
         <div className="p-6">
