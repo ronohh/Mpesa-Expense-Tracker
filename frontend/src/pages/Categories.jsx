@@ -88,7 +88,6 @@ const handleChange = (e) => {
                         <option value="income">Income</option>
                     </select>
                     <input type="text" name="icon" placeholder="Icon name" className="border rounded px-4 py-2" onChange={handleChange}/>
-                    <input type="submit" value="Add Category" />
                     <button type="submit" className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover-green-700">Add Category</button>
                 </div>
             </form>

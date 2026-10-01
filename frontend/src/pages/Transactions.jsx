@@ -1,6 +1,32 @@
 import React from "react";
+import axios from "axios";
+
 
 const Transactions = () => {
+    const [categories, setCategories] = useState([]);
+
+    const getHeaders = () => {
+        return {
+            Authorization: `Bearer ${localStorage.getItem("pos-token")}`
+        };
+    };
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/api/categories", {
+                headers: getHeaders()
+            });
+            if (response.data.success) {
+                setCategories(response.data.categories);
+            }
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+        }
+    }
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
     return (
         <div className="p-6">
             <div className="mb-6 text-center">
