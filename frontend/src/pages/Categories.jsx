@@ -92,6 +92,22 @@ const handleChange = (e) => {
                 </div>
             </form>
 
+            <div className="grid grid-cols-1 md: grid-cols-4 gap-4 mb-6">
+                <div className="bg-white p-4 rounded-lg shadow p-4">
+                    <p>Total Expenses</p>
+                    
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow p-4">
+                    <p>Total Income</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow p-4">
+                    <p>Net Balance</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow p-4">
+                    <p>Transactions</p>
+                </div>
+            </div>
+
             <div className="bg-white shadow rounded-lg p-6">
                 <div className="p-4 border-b">
                     <h2 className="text-lg font-semibold">My Categories</h2>
