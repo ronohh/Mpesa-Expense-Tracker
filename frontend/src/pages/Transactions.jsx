@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 
@@ -42,7 +43,11 @@ const Transactions = () => {
         }catch (error) {
             console.error("Error fetching transactions:", error);
         }
-    }
+    };
+    
+    useEffect(() => {
+        fetchTransactions();
+    }, []);
 
     return (
         <div className="p-6">
