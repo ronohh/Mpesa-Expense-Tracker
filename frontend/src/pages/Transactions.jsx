@@ -49,6 +49,14 @@ const Transactions = () => {
         fetchTransactions();
     }, []);
 
+    const totalIncome = transactions.filter(
+        (transaction) => transaction.category?.type === "income"
+    ).reduce((sum, transaction) => sum + transaction.amount, 0);
+
+    const totalExpenses = transactions.filter(
+        (transaction)=> transaction.category?.type === "expense"
+    ).reduce((sum, transaction) => sum + transaction.amount, 0);
+
     return (
         <div className="p-6">
             <div className="mb-6 text-center">
@@ -61,13 +69,13 @@ const Transactions = () => {
 
                     <p className="text-gray-500"> Total Income</p>
 
-                    <h2 className="text-2xl font-bold text-green-600">Ksh : 0.00</h2>
+                    <h2 className="text-2xl font-bold text-green-600">Ksh : {totalIncome.toFixed(2)}</h2>
                 </div>
 
                 <div className= "bg-white shadow rounded-lg p-4">
 
-                    <p className="text-gray-500">Transaction</p>
-                    <h2 className="text-xl font-bold">tttt</h2>
+                    <p className="text-gray-500">Total Expenses</p>
+                    <h2 className="text-2xl font-bold text-red-600">Ksh : {totalExpenses.toFixed(2)}</h2>
 
                 </div>
 
