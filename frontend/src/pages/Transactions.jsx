@@ -79,6 +79,16 @@ const Transactions = () => {
 
                 </div>
 
+                <div className="bg-white shadow rounded-lg p-4">
+                    <p className="text-gray-500">Net Balance</p>
+                    <h2 className="text-2xl font-bold text-blue-600">Ksh : {(totalIncome - totalExpenses).toFixed(2)}</h2>
+                </div>
+
+                <div className="bg-white shadow rounded-lg p-4">
+                    <p className="text-gray-500">Total Transactions</p>
+                    <h2 className="text-2xl font-bold text-purple-600">{transactions.length}</h2>
+                </div>
+
                 {/*  Add Transaction */}
 
                 <div className="bg-white shadow rounded-lg p-6 mb-6 ">
