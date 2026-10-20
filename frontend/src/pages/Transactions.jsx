@@ -59,12 +59,12 @@ const Transactions = () => {
 
     return (
         <div className="p-6">
-            <div className="mb-6 text-center">
+            <div className="mb-6">
                 <h1 className="text-left text-2xl font-bold ">Transactions</h1>
                 <p className="text-left text-gray-500"> View and manage your transactions.</p>
             </div>
 {/* summarry cards */}
-            <div className="grid grid-cols-1 md: grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div className="bg-white shadow rounded-lg p-4">
 
                     <p className="text-gray-500"> Total Income</p>
