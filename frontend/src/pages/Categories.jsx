@@ -7,7 +7,7 @@ const Categories = () => {
     const [formData, setFormData] = useState({
         name: "",
         type: "expense",
-        icon: ""
+        
     });
 
 const fetchCategories = async () => {
@@ -16,15 +16,15 @@ const fetchCategories = async () => {
             headers: { Authorization: `Bearer ${localStorage.getItem("pos-token")}`}
         });
         if (response.data.success) {
-            setCategories(response.data.Categories);
+            setCategories(response.data.categories);
         }
     }catch(error) {
             console.error( "Error fetching categories", error)
         }
-        useEffect(() => {
+    }
+    useEffect(() => {
             fetchCategories();
         },[])
-}
 
 const handleChange = (e) => {
     const { name, value} = e.target;
@@ -87,7 +87,6 @@ const handleChange = (e) => {
                         <option value="expense">Expense</option>
                         <option value="income">Income</option>
                     </select>
-                    <input type="text" name="icon" placeholder="Icon name" className="border rounded px-4 py-2" onChange={handleChange}/>
                     <button type="submit" className="mt-4 bg-green-500 text-white px-6 py-2 rounded hover-green-700">Add Category</button>
                 </div>
             </form>
@@ -121,7 +120,7 @@ const handleChange = (e) => {
                                 <tr>
                                     <th className="text-left p-4">Name</th>
                                     <th className="text-left p-4">Type</th>
-                                    <th className="text-left p-4">Icon</th>
+                                    <th className="text-left p-4">Total Spent</th>
                                     <th className="text-left p-4">Actions</th>
                                 </tr>
                             </thead>
@@ -131,7 +130,7 @@ const handleChange = (e) => {
                                     <tr key={category._id}>
                                         <td>{category.name}</td>
                                         <td>{category.type}</td>
-                                        <td>{category.icon}</td>
+                                        <td>{category.totalSpent || 0}</td>
                                         <td className="p-4 text-right">
                                             <button className="text-red-600 hover:text-red-800" onClick={() => handleDelete(category._id)}>
                                                 Delete

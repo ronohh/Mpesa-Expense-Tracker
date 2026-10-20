@@ -2,7 +2,7 @@ import Category from "../models/CategoriesModel.js";
 
 const addCategory = async (req,res) => {
     try {
-        const { name, type, icon } = req.body;
+        const { name, type } = req.body;
 
         if( !name || !type) {
             return res.status(400).json({ message: "Name and type are required"});
@@ -13,8 +13,8 @@ const addCategory = async (req,res) => {
             return res.status(400).json({ message: "Category already exists"});
          }
 
-         const category = await Category.create({name,type,icon,user: req.user._id });
-         res.status(201).json({ message: "Category added successfully", category });
+         const category = await Category.create({name,type,user: req.user._id });
+         res.status(201).json({ success: true, message: "Category added successfully", category });
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal server error", error });
@@ -23,7 +23,7 @@ const addCategory = async (req,res) => {
 
 const getCategories = async (req,res) => {
     try{
-        const categories = await Category.find();
+        const categories = await Category.find({user: req.user._id});
         return res.status(200).json({success: true, categories});
     }catch(error){
         console.error('Error fetching categories:', error);
