@@ -101,6 +101,24 @@ const Transactions = () => {
                 </div>
             </div>
 
+            {/* table of transactions */}
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date & Time</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Balance</th>
+                            <th>Transaction ID</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
         </div>
     )
 }

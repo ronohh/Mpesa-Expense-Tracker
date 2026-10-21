@@ -103,7 +103,7 @@ const handleChange = (e) => {
                     <p>Net Balance</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow p-4">
-                    <p>Transactions</p>
+                    <p>Total categories</p>
                 </div>
             </div>
 
