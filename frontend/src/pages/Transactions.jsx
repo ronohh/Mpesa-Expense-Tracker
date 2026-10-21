@@ -102,17 +102,17 @@ const Transactions = () => {
             </div>
 
             {/* table of transactions */}
-            <div>
-                <table>
+            <div className="bg-white shadow rounded-lg p-6">
+                <table className="w-full">
                     <thead>
                         <tr>
-                            <th>Date & Time</th>
-                            <th>Description</th>
-                            <th>Category</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                            <th>Balance</th>
-                            <th>Transaction ID</th>
+                            <th className="text-left p-4">Date & Time</th>
+                            <th className="text-left p-4">Description</th>
+                            <th className="text-left p-4">Category</th>
+                            <th className="text-left p-4">Type</th>
+                            <th className="text-left p-4">Amount</th>
+                            <th className="text-left p-4">Balance</th>
+                            <th className="text-left p-4">Transaction ID</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
