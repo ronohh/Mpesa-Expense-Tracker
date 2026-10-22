@@ -30,17 +30,31 @@ const Budget = () => {
                 <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mt-6">
                     <div>
                         <table className="w-full">
-                            <thead>
+                            <thead >
                                 <tr>
-                                    <th>category</th>
-                                    <th>Budget</th>
-                                    <th>Spent</th>
-                                    <th>Remaining</th>
-                                    <th>Progress</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
+                                    <th className="text-sm text-left p-4">Category</th>
+                                    <th className="text-sm text-left p-4">Budget</th>
+                                    <th className="text-sm text-left p-4">Spent</th>
+                                    <th className="text-sm text-left p-4">Remaining</th>
+                                    <th className="text-sm text-left p-4">Progress</th>
+                                    <th className="text-sm text-left p-4">Status</th>
+                                    <th className="text-sm text-left p-4">Actions</th>
                                 </tr>
                             </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Food</td>
+                                    <td>Ksh 5,000.00</td>
+                                    <td>Ksh 3,000.00</td>
+                                    <td>Ksh 2,000.00</td>
+                                    <td>60%</td>
+                                    <td className="text-green-500">On Track</td>
+                                    <td>
+                                        <button className="bg-blue-500 text-white px-2 py-1 rounded mr-2">Edit</button>
+                                        <button className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
