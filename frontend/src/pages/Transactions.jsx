@@ -104,7 +104,7 @@ const Transactions = () => {
             {/* table of transactions */}
             <div className="bg-white shadow rounded-lg p-6">
                 <table className="w-full">
-                    <thead>
+                    <thead className="bg-gray-100">
                         <tr>
                             <th className="text-left p-4">Date & Time</th>
                             <th className="text-left p-4">Description</th>
@@ -115,7 +115,17 @@ const Transactions = () => {
                             <th className="text-left p-4">Transaction ID</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 
