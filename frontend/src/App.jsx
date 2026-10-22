@@ -6,6 +6,7 @@ import Categories from './pages/Categories';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Transactions from "./pages/Transactions";
+import Budget from './pages/Budget';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/categories" element={<Categories/>} />
         <Route path="/transactions" element={<Transactions/>} />
+        <Route path="/budgets" element={<Budget/>} />
       </Route>
 
     </Routes>
