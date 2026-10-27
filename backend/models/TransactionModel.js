@@ -6,6 +6,9 @@ const transactionSchema = new mongoose.Schema({
     type: {type: String, enum: ["income", "expense"], required: true},
     category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true, default: null},
     categoryName: {type: String, default: "Other"},
+    transactionId: {type: String, default: null, trim: true},
+    balance: {type: Number, default: null},
+    source: {type: String, enum: ["manual", "mpesa_import"], default: "manual"},
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
     date: { type: Date, required: true }
 }, {timestamps: true});
